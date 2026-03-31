@@ -1,0 +1,125 @@
+:root {
+  color-scheme: dark;
+  --bg: #060918;
+  --grid: rgba(158, 183, 227, 0.08);
+  --text: #a9c4ee;
+  --muted: rgba(169, 196, 238, 0.72);
+  --spotlight: rgba(150, 175, 225, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 16%, rgba(115, 141, 199, 0.15), transparent 18%),
+    linear-gradient(180deg, #070b1b 0%, #050816 100%);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(7, 11, 27, 0.85), rgba(5, 8, 22, 0.96));
+}
+
+#particle-canvas,
+.hero__spotlights,
+.hero__grid {
+  position: absolute;
+  inset: 0;
+}
+
+#particle-canvas {
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+
+.hero__grid {
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 120px 120px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 95%);
+}
+
+.hero__spotlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: start center;
+  pointer-events: none;
+}
+
+.spotlight {
+  width: min(32vw, 420px);
+  height: 58vh;
+  background: linear-gradient(180deg, var(--spotlight), transparent 75%);
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  filter: blur(22px);
+  transform-origin: top center;
+  animation: sweep 8s ease-in-out infinite;
+}
+
+.spotlight--left {
+  transform: rotate(18deg) scale(1);
+  animation-duration: 5s;
+}
+
+.spotlight--center {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.spotlight--right {
+  transform: rotate(-18deg) scale(1);
+  animation-duration: 4s;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  min-height: 100vh;
+  text-align: center;
+  padding: 24px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(72px, 12vw, 156px);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+  color: var(--text);
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 36rem;
+  font-size: clamp(18px, 2vw, 28px);
+  color: var(--muted);
+}
+
+@keyframes sweep {
+  0%,
+  100% {
+    filter: blur(22px);
+  }
+
+  50% {
+    filter: blur(30px);
+  }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundry SDLC Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Primary">
+        <div class="sidebar__group">
+          <button class="nav-icon nav-icon--brand" aria-label="Home">F</button>
+          <button class="nav-icon" aria-label="Create">+</button>
+          <button class="nav-icon" aria-label="Projects">+</button>
+          <button class="nav-icon" aria-label="Favorites">+</button>
+          <button class="nav-icon" aria-label="History">+</button>
+        </div>
+        <div class="sidebar__group sidebar__group--bottom">
+          <button class="nav-icon" aria-label="Team">+</button>
+          <button class="nav-icon" aria-label="Settings">+</button>
+        </div>
+      </aside>
+
+      <div class="page">
+        <header class="topbar">
+          <div class="topbar__spacer"></div>
+          <div class="topbar__actions">
+            <button class="topbar__icon" aria-label="Notifications">+</button>
+            <button class="topbar__icon" aria-label="Apps">+</button>
+            <button class="topbar__profile" aria-label="Profile">JS</button>
+          </div>
+        </header>
+
+        <main class="main-content">
+          <section class="hero">
+            <div class="hero__logo" aria-hidden="true">
+              <span class="hero__logo-mark">F</span>
+            </div>
+            <p class="hero__eyebrow">Good morning,</p>
+            <h1>What do you want to build today?</h1>
+          </section>
+
+          <section class="composer">
+            <label class="composer__box" for="project-description">
+              <textarea
+                id="project-description"
+                class="composer__input"
+                placeholder="Describe your project here..."
+              ></textarea>
+              <div class="composer__footer">
+                <div class="composer__tools" aria-label="Input tools">
+                  <button type="button" class="tool-button" aria-label="Attach file">+</button>
+                  <button type="button" class="tool-button" aria-label="Voice input">+</button>
+                </div>
+                <button type="button" class="submit-button" aria-label="Submit prompt">→</button>
+              </div>
+            </label>
+
+            <div class="chips" aria-label="Suggested prompts">
+              <button class="chip chip--active" type="button">Analytical</button>
+              <button class="chip" type="button">Operational</button>
+              <button class="chip" type="button">Learn</button>
+              <button class="chip" type="button">Foundry's choice</button>
+            </div>
+          </section>
+
+          <section class="projects">
+            <div class="section-heading">
+              <h2>Recent Projects</h2>
+              <a href="/" class="section-heading__link">View All</a>
+            </div>
+
+            <div class="project-grid" id="project-grid" aria-live="polite"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
